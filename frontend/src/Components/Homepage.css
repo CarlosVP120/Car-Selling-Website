@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepage-subtitle {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  color: #9ba4b5;
+}
+
+.homepage-title {
+  font-size: 3rem;
+}
+
+.homepage-buttons {
+  display: flex;
+  gap: 2rem;
+}
+
+.homepage-button {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 10rem;
+  height: 3rem;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 0.1rem;
+  background-color: #8570f2;
+  color: white;
+}
+
+.homepage-button:hover {
+  background-color: #9ba4b5;
+}
+
+.bmw-image {
+  width: 50%;
+  height: 50%;
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .bmw-image {
+    width: 80%;
+    height: 80%;
+  }
+}
