@@ -1,4 +1,3 @@
-import bmw from "../images/bmw.png";
 import "./Homepage.css";
 
 function Homepage() {
@@ -14,7 +13,7 @@ function Homepage() {
           Comprar
         </button>
       </div>
-      <img src={bmw} alt="bmw_m4" className="bmw-image" />
+      <img src="img/bmw.png" alt="bmw_m4" className="bmw-image" />
     </div>
   );
 }
