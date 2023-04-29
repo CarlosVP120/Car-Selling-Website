@@ -1,3 +1,12 @@
+.card-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -14,10 +23,9 @@
 }
 
 .card-title {
-  font-size: 5rem;
+  font-size: 4rem;
   margin-top: 2rem;
   color: #9ba4b5;
-  margin-left: 6rem;
 }
 
 .card img {
@@ -44,4 +52,20 @@
 
 .card-body p:first-child {
   font-weight: bold;
+}
+
+.card-button {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 10rem;
+  height: 3rem;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 0.4rem;
+  background-color: #8570f2;
+  color: white;
+}
+
+.card-button:hover {
+  background-color: #9ba4b5;
 }
