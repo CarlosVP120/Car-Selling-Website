@@ -6,6 +6,7 @@ function Cards() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [openModal, setOpenModal] = useState(false);
+  const [currentCar, setCurrentCar] = useState({}); // [1
 
   useEffect(() => {
     fetch("http://localhost:9000/inventario")
@@ -39,7 +40,7 @@ function Cards() {
                   <h3>
                     {item.marca} - {item.modelo} ({item.año})
                   </h3>
-                  <p>Precio: {item.precio}</p>
+                  <p>Precio: ${item.precio}</p>
                   <p>Estado: {item.estado}</p>
                   <p>Color: {item.color}</p>
                   <p>Stock: {item.stock}</p>
@@ -50,7 +51,10 @@ function Cards() {
                     <button
                       type="button"
                       className="card-button"
-                      onClick={() => setOpenModal(true)}
+                      onClick={() => {
+                        setCurrentCar(item);
+                        setOpenModal(true);
+                      }}
                     >
                       Abrir
                     </button>
@@ -61,7 +65,11 @@ function Cards() {
         </div>
       </div>
       {openModal && (
-        <CarModal setOpenModal={setOpenModal} openModal={openModal} />
+        <CarModal
+          setOpenModal={setOpenModal}
+          openModal={openModal}
+          car={currentCar}
+        />
       )}
     </>
   );

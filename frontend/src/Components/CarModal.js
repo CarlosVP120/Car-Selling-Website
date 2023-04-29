@@ -1,7 +1,7 @@
 import React from "react";
 import "./CarModal.css";
 
-const CarModal = ({ setOpenModal, openModal }) => {
+const CarModal = ({ setOpenModal, openModal, car }) => {
   return (
     <div className="car-modal">
       {/* Close button */}
@@ -23,7 +23,44 @@ const CarModal = ({ setOpenModal, openModal }) => {
           />
         </svg>
       </button>
-      <h1>Car</h1>
+      <div className="car-container">
+        <h1 className="car-title">
+          {car.marca} {car.modelo}
+        </h1>
+        <div className="car-information">
+          <img src={car.url_imagen} alt={car.modelo} className="car-image" />
+          <div className="car-body">
+            <h3>
+              {car.marca} - {car.modelo} ({car.año})
+            </h3>
+            <p>
+              <span>Precio:</span> ${car.precio}
+            </p>
+            <p>
+              <span>Estado:</span> {car.estado}
+            </p>
+            <p>
+              <span>Color:</span> {car.color}
+            </p>
+            <p>
+              <span>Stock:</span> {car.stock}
+            </p>
+          </div>
+        </div>
+        {/* Buttons */}
+        <div className="car-button-container">
+          <button type="button" className="car-button">
+            Comprar
+          </button>
+          <button
+            type="button"
+            className="car-button"
+            onClick={() => setOpenModal(false)}
+          >
+            Cancelar
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
