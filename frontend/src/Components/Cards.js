@@ -19,7 +19,7 @@ function Cards() {
   return (
     <>
       {" "}
-      <div>
+      <div className="card-section">
         <h1 className="card-title">Nuestros Autos</h1>
         <div className="card-container">
           {data.result &&
@@ -34,6 +34,9 @@ function Cards() {
                   <p>Estado: {item.estado}</p>
                   <p>Color: {item.color}</p>
                   <p>Stock: {item.stock}</p>
+                  <button type="button" className="card-button">
+                    Comprar
+                  </button>
                 </div>
               </div>
             ))}
