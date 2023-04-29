@@ -1,4 +1,5 @@
 import "./Homepage.css";
+import Navbar from "./Model";
 
 function Homepage() {
   return (
@@ -13,7 +14,9 @@ function Homepage() {
           Comprar
         </button>
       </div>
-      <img src="img/bmw.png" alt="bmw_m4" className="bmw-image" />
+      <div className="bmw-image">
+        <Navbar />
+      </div>
     </div>
   );
 }

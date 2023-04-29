@@ -36,11 +36,11 @@
   background-color: #9ba4b5;
 }
 
-.bmw-image {
+/* .bmw-image {
   width: 50%;
   height: 50%;
   margin-top: 2rem;
-}
+} */
 
 @media screen and (max-width: 768px) {
   .bmw-image {
