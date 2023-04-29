@@ -5,7 +5,7 @@ function Homepage() {
   return (
     <div className="container">
       <h3 className="homepage-subtitle">Conoce tu nuevo auto</h3>
-      <h1 className="homepage-title">BMW Modelo M4</h1>
+      <h2 className="homepage-title">BMW M4 2022</h2>
       <div className="homepage-buttons">
         <button type="button" className="homepage-button">
           Ver más

@@ -29,10 +29,9 @@ function App() {
     <Canvas
       style={{ width: "100vw", height: "55vh" }}
       camera={{ position: [60, 13, 100], fov: 10 }}
-      // Change the fov (field of view) parameter to zoom in or out
       fov={900}
+      gl={{ alpha: true }}
     >
-      <color attach="background" args={["#ffffff"]} />
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
       <Model />
