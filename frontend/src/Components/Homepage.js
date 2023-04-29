@@ -14,9 +14,7 @@ function Homepage() {
           Comprar
         </button>
       </div>
-      <div className="bmw-image">
-        <Model />
-      </div>
+      <div className="bmw-image">{/* <Model /> */}</div>
     </div>
   );
 }
