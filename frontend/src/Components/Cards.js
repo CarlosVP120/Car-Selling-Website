@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import "./Cards.css";
 import CarModal from "./CarModal";
+import BuyModal from "./BuyModal";
 
 function Cards({ openModal, setOpenModal, setCurrentCar, currentCar }) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
+  const [openBuyModal, setOpenBuyModal] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost:9000/inventario")
@@ -18,7 +20,7 @@ function Cards({ openModal, setOpenModal, setCurrentCar, currentCar }) {
   }
 
   // If Modal is open, ignore the scroll
-  if (openModal) {
+  if (openModal || openBuyModal) {
     document.body.style.overflow = "hidden";
   } else {
     document.body.style.overflow = "unset";
@@ -43,7 +45,15 @@ function Cards({ openModal, setOpenModal, setCurrentCar, currentCar }) {
                   <p>Color: {item.color}</p>
                   <p>Stock: {item.stock}</p>
                   <div className="card-button-container">
-                    <button type="button" className="card-button">
+                    <button
+                      type="button"
+                      className="card-button"
+                      onClick={() => {
+                        setCurrentCar(item);
+                        setOpenModal(false);
+                        setOpenBuyModal(true);
+                      }}
+                    >
                       Comprar
                     </button>
                     <button
@@ -62,11 +72,12 @@ function Cards({ openModal, setOpenModal, setCurrentCar, currentCar }) {
             ))}
         </div>
       </div>
-      {openModal && (
-        <CarModal
-          setOpenModal={setOpenModal}
-          openModal={openModal}
+      {openModal && <CarModal setOpenModal={setOpenModal} car={currentCar} />}
+      {openBuyModal && (
+        <BuyModal
+          setOpenBuyModal={setOpenBuyModal}
           car={currentCar}
+          setData={setData}
         />
       )}
     </>
