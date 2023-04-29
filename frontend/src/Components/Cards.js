@@ -40,7 +40,7 @@ function Cards() {
                   <h3>
                     {item.marca} - {item.modelo} ({item.año})
                   </h3>
-                  <p>Precio: {item.precio}</p>
+                  <p>Precio: ${item.precio}</p>
                   <p>Estado: {item.estado}</p>
                   <p>Color: {item.color}</p>
                   <p>Stock: {item.stock}</p>
