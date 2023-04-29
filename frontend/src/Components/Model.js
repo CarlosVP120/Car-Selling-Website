@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { OrbitControls, Environment } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
 import { useGLTF } from "@react-three/drei";
 
 function Model() {
@@ -28,8 +27,8 @@ function Camera() {
   }, []);
 
   useFrame(({ camera }) => {
-    camera.position.x = Math.sin(scrollPos * 0.0025) * 100;
-    camera.position.z = Math.cos(scrollPos * 0.0025) * 100;
+    camera.position.x = Math.sin(scrollPos * 0.0035) * 100;
+    camera.position.z = Math.cos(scrollPos * 0.0035) * 100;
     camera.lookAt(0, 0, 0);
   });
 

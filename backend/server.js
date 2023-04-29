@@ -72,6 +72,23 @@ app.get("/inventario", (req, res) => {
   });
 });
 
+// get a specific car
+app.get("/inventario/:id", (req, res) => {
+  const id = req.params.id;
+  db.query(
+    "SELECT * FROM carros.inventario WHERE id_carro = ?;",
+    id,
+    (error, result) => {
+      if (error) {
+        console.log(error);
+        res.status(500).json({ error: "Error al obtener los datos" });
+      } else {
+        res.send({ result });
+      }
+    }
+  );
+});
+
 //Update
 app.put("/update", (req, res) => {
   const id = req.body.id;
