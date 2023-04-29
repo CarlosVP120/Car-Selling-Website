@@ -2,11 +2,9 @@ import { useEffect, useState } from "react";
 import "./Cards.css";
 import CarModal from "./CarModal";
 
-function Cards() {
+function Cards({ openModal, setOpenModal, setCurrentCar, currentCar }) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
-  const [openModal, setOpenModal] = useState(false);
-  const [currentCar, setCurrentCar] = useState({}); // [1
 
   useEffect(() => {
     fetch("http://localhost:9000/inventario")
