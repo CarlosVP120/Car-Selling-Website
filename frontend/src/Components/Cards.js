@@ -72,7 +72,13 @@ function Cards({ openModal, setOpenModal, setCurrentCar, currentCar }) {
             ))}
         </div>
       </div>
-      {openModal && <CarModal setOpenModal={setOpenModal} car={currentCar} />}
+      {openModal && (
+        <CarModal
+          setOpenModal={setOpenModal}
+          setOpenBuyModal={setOpenBuyModal}
+          car={currentCar}
+        />
+      )}
       {openBuyModal && (
         <BuyModal
           setOpenBuyModal={setOpenBuyModal}

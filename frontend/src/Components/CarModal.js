@@ -1,7 +1,7 @@
 import React from "react";
 import "./CarModal.css";
 
-const CarModal = ({ setOpenModal, openModal, car }) => {
+const CarModal = ({ setOpenModal, setOpenBuyModal, car }) => {
   return (
     <div className="car-modal">
       {/* Close button */}
@@ -49,7 +49,14 @@ const CarModal = ({ setOpenModal, openModal, car }) => {
         </div>
         {/* Buttons */}
         <div className="car-button-container">
-          <button type="button" className="car-button">
+          <button
+            type="button"
+            className="car-button"
+            onClick={() => {
+              setOpenModal(false);
+              setOpenBuyModal(true);
+            }}
+          >
             Comprar
           </button>
           <button
