@@ -1,13 +1,12 @@
 .navbar {
-  width: 100%;
+  width: 100vw;
   height: 4rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.15);
   background-color: #d8e3fb;
   color: white;
-  padding: 0 3rem;
   position: sticky;
   top: 0;
   z-index: 999;
@@ -16,10 +15,16 @@
 .logo-icon {
   width: 3.5rem;
   height: 3.5rem;
+  margin-left: 3rem;
+  z-index: 20;
 }
 
 .navbar-links {
+  width: 100%;
   display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
   gap: 0.5rem;
 }
 
@@ -45,6 +50,8 @@
   padding: 0.5rem 1rem;
   font-size: 1rem;
   cursor: pointer;
+  margin-right: 3rem;
+  z-index: 20;
 }
 
 .seller-button:hover {
@@ -100,7 +107,16 @@
 }
 
 @media screen and (max-width: 768px) {
-  .navbar {
-    padding: 0 1rem;
+  .logo-icon {
+    margin-left: 1rem;
+  }
+
+  .navbar-links {
+    /* Make them smaller */
+    position: relative;
+  }
+
+  .seller-button {
+    margin-right: 1rem;
   }
 }
