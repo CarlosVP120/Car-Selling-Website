@@ -1,0 +1,43 @@
+.car-modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000080;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  animation: fadeIn 0.3s;
+}
+
+.car-modal-close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 2rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  cursor: pointer;
+  color: white;
+  background: rgb(208, 51, 51);
+  border-radius: 20%;
+  animation: fadeIn 0.3s;
+  /* DElete the default button decoration */
+  border: none;
+  outline: none;
+}
+
+.car-modal-close-button:hover {
+  background: rgb(255, 51, 51);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -5,6 +5,7 @@
   justify-content: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  overflow: hidden;
 }
 
 .card-container {
@@ -52,6 +53,12 @@
 
 .card-body p:first-child {
   font-weight: bold;
+}
+
+.card-button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .card-button {
