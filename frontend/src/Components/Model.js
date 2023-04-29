@@ -1,26 +1,33 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useLayoutEffect,
+  useRef,
+  useState,
+  Suspense,
+} from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Environment } from "@react-three/drei";
-import { useGLTF } from "@react-three/drei";
+import { Environment, useGLTF } from "@react-three/drei";
 
-function Model() {
+const Model = React.memo(() => {
   const gltf = useGLTF("m4.glb");
   // Rotate model 45 degrees on x and y axis
   return (
     <primitive object={gltf.scene} position={[1, -5, 0]} scale={[2, 2, 2]} />
   );
-}
+});
 
-function Camera() {
+const Camera = React.memo(() => {
   const ref = useRef();
   const [scrollPos, setScrollPos] = useState(200);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleScroll = () => {
       const position = window.pageYOffset + 200;
       setScrollPos(position);
     };
+
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -33,7 +40,7 @@ function Camera() {
   });
 
   return <perspectiveCamera ref={ref} />;
-}
+});
 
 function App() {
   return (
@@ -45,7 +52,9 @@ function App() {
     >
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
-      <Model />
+      <Suspense fallback={null}>
+        <Model />
+      </Suspense>
       <Environment preset="sunset" />
       <Camera />
     </Canvas>

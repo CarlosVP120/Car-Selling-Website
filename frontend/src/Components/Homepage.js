@@ -43,7 +43,9 @@ function Homepage({ setOpenModal, setCurrentCar }) {
           Comprar
         </button>
       </div>
-      <div className="bmw-image">{/* <Model /> */}</div>
+      <div className="bmw-image">
+        <Model />
+      </div>
     </div>
   );
 }

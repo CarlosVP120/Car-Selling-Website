@@ -13,11 +13,6 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <img src="car-icon.png" alt="" className="logo-icon" />
-      <div className="navbar-links">
-        <a href="/">Inicio</a>
-        <a href="/inventario">Inventario</a>
-        <a href="/contacto">Contacto</a>
-      </div>
 
       <div className="seller-dropdown">
         <div className="dropdown-button">
