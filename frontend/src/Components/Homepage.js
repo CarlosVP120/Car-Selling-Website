@@ -1,5 +1,5 @@
 import "./Homepage.css";
-import Navbar from "./Model";
+import Model from "./Model";
 
 function Homepage() {
   return (
@@ -15,7 +15,7 @@ function Homepage() {
         </button>
       </div>
       <div className="bmw-image">
-        <Navbar />
+        <Model />
       </div>
     </div>
   );
