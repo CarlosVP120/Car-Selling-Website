@@ -12,6 +12,8 @@
 }
 
 .homepage-title {
+  display: flex;
+  align-items: center;
   font-size: 3rem;
 }
 
@@ -35,6 +37,13 @@
 
 .homepage-button:hover {
   background-color: #9ba4b5;
+}
+
+.m4-logo {
+  width: 10rem;
+  border: #8570f2;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 /* .bmw-image {
