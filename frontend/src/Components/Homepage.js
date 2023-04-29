@@ -1,10 +1,11 @@
 import "./Homepage.css";
+import Navbar from "./Model";
 
 function Homepage() {
   return (
     <div className="container">
       <h3 className="homepage-subtitle">Conoce tu nuevo auto</h3>
-      <h1 className="homepage-title">BMW Modelo M4</h1>
+      <h2 className="homepage-title">BMW M4 2022</h2>
       <div className="homepage-buttons">
         <button type="button" className="homepage-button">
           Ver más
@@ -13,7 +14,9 @@ function Homepage() {
           Comprar
         </button>
       </div>
-      <img src="img/bmw.png" alt="bmw_m4" className="bmw-image" />
+      <div className="bmw-image">
+        <Navbar />
+      </div>
     </div>
   );
 }

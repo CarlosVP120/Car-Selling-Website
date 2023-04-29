@@ -12,7 +12,7 @@
 }
 
 .homepage-title {
-  font-size: 5rem;
+  font-size: 4rem;
 }
 
 .homepage-buttons {
@@ -21,7 +21,7 @@
 }
 
 .homepage-button {
-  margin-top: 2rem;
+  margin-top: 0.8rem;
   margin-bottom: 2rem;
   width: 10rem;
   height: 3rem;
@@ -36,11 +36,11 @@
   background-color: #9ba4b5;
 }
 
-.bmw-image {
+/* .bmw-image {
   width: 50%;
   height: 50%;
   margin-top: 2rem;
-}
+} */
 
 @media screen and (max-width: 768px) {
   .bmw-image {
