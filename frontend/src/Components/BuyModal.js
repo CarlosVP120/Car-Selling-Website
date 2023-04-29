@@ -1,13 +1,36 @@
 import React from "react";
-import "./CarModal.css";
+import "./BuyModal.css";
 
-const CarModal = ({ setOpenModal, setOpenBuyModal, car }) => {
+const BuyModal = ({ setOpenBuyModal, car, setData }) => {
+  const confirmBuy = () => {
+    fetch("http://localhost:9000/buy/" + car.id_carro, {
+      method: "PUT",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        alert("¡Compra realizada con éxito!");
+        // Update the stock using the setData function
+        setData((prevData) => {
+          const newData = prevData.result.map((item) => {
+            if (item.id_carro === car.id_carro) {
+              return { ...item, stock: item.stock - 1 };
+            } else {
+              return item;
+            }
+          });
+          return { ...prevData, result: newData };
+        });
+        setOpenBuyModal(false);
+      })
+      .catch((error) => alert(error));
+  };
+
   return (
     <div className="car-modal">
       {/* Close button */}
       <button
         className="car-modal-close-button"
-        onClick={() => setOpenModal(false)}
+        onClick={() => setOpenBuyModal(false)}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -24,8 +47,8 @@ const CarModal = ({ setOpenModal, setOpenBuyModal, car }) => {
         </svg>
       </button>
       <div className="car-container">
-        <h1 className="car-title">
-          {car.marca} {car.modelo}
+        <h1 className="car-buy-title">
+          ¡Tu nuevo {car.marca} {car.modelo} está casi listo!
         </h1>
         <div className="car-information">
           <img src={car.url_imagen} alt={car.modelo} className="car-image" />
@@ -49,20 +72,13 @@ const CarModal = ({ setOpenModal, setOpenBuyModal, car }) => {
         </div>
         {/* Buttons */}
         <div className="car-button-container">
-          <button
-            type="button"
-            className="car-button"
-            onClick={() => {
-              setOpenModal(false);
-              setOpenBuyModal(true);
-            }}
-          >
-            Comprar
+          <button type="button" className="car-buy-button" onClick={confirmBuy}>
+            Confirmar compra
           </button>
           <button
             type="button"
-            className="car-button"
-            onClick={() => setOpenModal(false)}
+            className="car-cancel-button"
+            onClick={() => setOpenBuyModal(false)}
           >
             Cancelar
           </button>
@@ -72,4 +88,4 @@ const CarModal = ({ setOpenModal, setOpenBuyModal, car }) => {
   );
 };
 
-export default CarModal;
+export default BuyModal;

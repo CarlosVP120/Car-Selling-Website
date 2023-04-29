@@ -89,6 +89,23 @@ app.get("/inventario/:id", (req, res) => {
   );
 });
 
+// When a car is bought (stock - 1)
+app.put("/buy/:id", (req, res) => {
+  const id = req.params.id;
+  db.query(
+    "UPDATE carros.inventario SET stock = stock - 1 WHERE id_carro = ?;",
+    id,
+    (error, result) => {
+      if (error) {
+        console.log(error);
+        res.status(500).json({ error: "Error al obtener los datos" });
+      } else {
+        res.send({ result });
+      }
+    }
+  );
+});
+
 //Update
 app.put("/update", (req, res) => {
   const id = req.body.id;
