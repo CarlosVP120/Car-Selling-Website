@@ -90,7 +90,7 @@ app.get("/inventario/:id", (req, res) => {
 });
 
 // When a car is bought (stock - 1)
-app.put("/buy/:id", (req, res) => {
+app.delete("/buy/:id", (req, res) => {
   const id = req.params.id;
   db.query(
     "UPDATE carros.inventario SET stock = stock - 1 WHERE id_carro = ?;",
