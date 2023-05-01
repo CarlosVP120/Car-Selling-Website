@@ -111,7 +111,7 @@ app.put("/update/:id", (req, res) => {
   const id = req.params.id;
   const precio = req.body.precio;
   db.query(
-    "UPDATE carros.inventario SET precio = ? WHERE id = ?;",
+    "UPDATE carros.inventario SET precio = ? WHERE id_carro = ?;",
     [precio, id],
     (error, result) => {
       if (error) {
