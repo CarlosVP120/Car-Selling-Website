@@ -28,6 +28,35 @@ const CarModal = ({ setOpenModal, setOpenBuyModal, car, isSeller }) => {
       });
   };
 
+  const handleStockSubmit = (event) => {
+    event.preventDefault();
+    const newStock = window.prompt("Ingrese el nuevo stock:");
+
+    fetch(
+      "https://car-selling-website.onrender.com/update/stock/" + car.id_carro,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ stock: newStock }),
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error al actualizar el stock");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        alert("Stock actualizado", data);
+        car.stock = newStock;
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
   return (
     <div className="car-modal">
       {/* Close button */}
@@ -104,9 +133,9 @@ const CarModal = ({ setOpenModal, setOpenBuyModal, car, isSeller }) => {
               <button
                 type="button"
                 className="car-button"
-                onClick={handlePriceSubmit}
+                onClick={handleStockSubmit}
               >
-                Cambiar Precio
+                Modificar Stock
               </button>
             </>
           )}
