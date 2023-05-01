@@ -9,9 +9,9 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = mysql.createConnection({
-  user: "root",
-  host: "localhost",
-  password: "",
+  user: "admin",
+  host: "car-website.c2k4scjnbyqp.us-east-2.rds.amazonaws.com",
+  password: "carros123",
   database: "carros",
 });
 
