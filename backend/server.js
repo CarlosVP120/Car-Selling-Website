@@ -107,8 +107,8 @@ app.delete("/buy/:id", (req, res) => {
 });
 
 //Update
-app.put("/update", (req, res) => {
-  const id = req.body.id;
+app.put("/update/:id", (req, res) => {
+  const id = req.params.id;
   const precio = req.body.precio;
   db.query(
     "UPDATE carros.inventario SET precio = ? WHERE id = ?;",
@@ -116,11 +116,9 @@ app.put("/update", (req, res) => {
     (error, result) => {
       if (error) {
         console.log(error);
-        res.status(500).send({
-          error: "Error actualizando el precio del carro en la base de datos",
-        });
+        res.status(500).json({ error: "Error al obtener los datos" });
       } else {
-        res.send({ message: "Precio del carro actualizado exitosamente" });
+        res.send({ result });
       }
     }
   );
