@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ setIsSeller }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
 
   const handleDropdownClick = (option) => {
     setSelectedOption(option);
     setShowDropdown(false);
+    if (option === "Vendedor") {
+      setIsSeller(true);
+    } else {
+      setIsSeller(false);
+    }
   };
 
   return (

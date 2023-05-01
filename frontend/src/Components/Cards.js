@@ -3,7 +3,14 @@ import "./Cards.css";
 import CarModal from "./CarModal";
 import BuyModal from "./BuyModal";
 
-function Cards({ openModal, setOpenModal, setCurrentCar, currentCar }) {
+function Cards({
+  openModal,
+  setOpenModal,
+  setCurrentCar,
+  currentCar,
+  setIsSeller,
+  isSeller,
+}) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [openBuyModal, setOpenBuyModal] = useState(false);
@@ -77,6 +84,8 @@ function Cards({ openModal, setOpenModal, setCurrentCar, currentCar }) {
           setOpenModal={setOpenModal}
           setOpenBuyModal={setOpenBuyModal}
           car={currentCar}
+          setIsSeller={setIsSeller}
+          isSeller={isSeller}
         />
       )}
       {openBuyModal && (
