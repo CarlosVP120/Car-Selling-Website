@@ -116,8 +116,11 @@ app.put("/update", (req, res) => {
     (error, result) => {
       if (error) {
         console.log(error);
+        res.status(500).send({
+          error: "Error actualizando el precio del carro en la base de datos",
+        });
       } else {
-        res.send(result);
+        res.send({ message: "Precio del carro actualizado exitosamente" });
       }
     }
   );

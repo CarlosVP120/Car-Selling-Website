@@ -7,10 +7,11 @@ import { useState } from "react";
 function App() {
   const [openModal, setOpenModal] = useState(false);
   const [currentCar, setCurrentCar] = useState({});
+  const [isSeller, setIsSeller] = useState(false);
 
   return (
     <>
-      <Navbar />
+      <Navbar setIsSeller={setIsSeller} />
       <Homepage
         openModal={openModal}
         setOpenModal={setOpenModal}
@@ -22,6 +23,8 @@ function App() {
         setOpenModal={setOpenModal}
         setCurrentCar={setCurrentCar}
         currentCar={currentCar}
+        setIsSeller={setIsSeller}
+        isSeller={isSeller}
       />
     </>
   );

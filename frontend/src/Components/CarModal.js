@@ -1,7 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CarModal.css";
 
-const CarModal = ({ setOpenModal, setOpenBuyModal, car }) => {
+const CarModal = ({ setOpenModal, setOpenBuyModal, car, isSeller }) => {
+  const [price, setPrice] = useState(car.precio);
+
+  const handlePriceChange = (event) => {
+    setPrice(event.target.value);
+  };
+
+  const handlePriceSubmit = (event) => {
+    event.preventDefault();
+    const newPrice = window.prompt("Ingrese el nuevo precio:");
+
+    fetch(`http://localhost:3001/cars/${car.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ precio: price }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error al actualizar el precio");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Precio actualizado:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
   return (
     <div className="car-modal">
       {/* Close button */}
@@ -66,6 +97,15 @@ const CarModal = ({ setOpenModal, setOpenBuyModal, car }) => {
           >
             Cancelar
           </button>
+          {isSeller && (
+            <button
+              type="button"
+              className="car-button"
+              onClick={handlePriceSubmit}
+            >
+              Cambiar Precio
+            </button>
+          )}
         </div>
       </div>
     </div>
