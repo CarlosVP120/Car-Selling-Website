@@ -3,8 +3,8 @@ import "./BuyModal.css";
 
 const BuyModal = ({ setOpenBuyModal, car, setData }) => {
   const confirmBuy = () => {
-    fetch("http://localhost:9000/buy/" + car.id_carro, {
-      method: "PUT",
+    fetch("https://car-selling-website.onrender.com/buy/" + car.id_carro, {
+      method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {

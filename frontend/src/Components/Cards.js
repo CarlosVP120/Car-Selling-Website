@@ -9,7 +9,7 @@ function Cards({ openModal, setOpenModal, setCurrentCar, currentCar }) {
   const [openBuyModal, setOpenBuyModal] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:9000/inventario")
+    fetch("https://car-selling-website.onrender.com/inventario")
       .then((res) => res.json())
       .then((data) => setData(data))
       .catch((error) => setError(error));
