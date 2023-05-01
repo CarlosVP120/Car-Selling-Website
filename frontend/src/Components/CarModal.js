@@ -93,13 +93,22 @@ const CarModal = ({ setOpenModal, setOpenBuyModal, car, isSeller }) => {
             Cancelar
           </button>
           {isSeller && (
-            <button
-              type="button"
-              className="car-button"
-              onClick={handlePriceSubmit}
-            >
-              Cambiar Precio
-            </button>
+            <>
+              <button
+                type="button"
+                className="car-button"
+                onClick={handlePriceSubmit}
+              >
+                Cambiar Precio
+              </button>
+              <button
+                type="button"
+                className="car-button"
+                onClick={handlePriceSubmit}
+              >
+                Cambiar Precio
+              </button>
+            </>
           )}
         </div>
       </div>
