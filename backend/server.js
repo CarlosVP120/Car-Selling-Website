@@ -111,8 +111,26 @@ app.put("/update/:id", (req, res) => {
   const id = req.params.id;
   const precio = req.body.precio;
   db.query(
-    "UPDATE carros.inventario SET precio = ? WHERE id = ?;",
+    "UPDATE carros.inventario SET precio = ? WHERE id_carro = ?;",
     [precio, id],
+    (error, result) => {
+      if (error) {
+        console.log(error);
+        res.status(500).json({ error: "Error al obtener los datos" });
+      } else {
+        res.send({ result });
+      }
+    }
+  );
+});
+
+// Patch to update the stock
+app.patch("/update/stock/:id", (req, res) => {
+  const id = req.params.id;
+  const stock = req.body.stock;
+  db.query(
+    "UPDATE carros.inventario SET stock = ? WHERE id_carro = ?;",
+    [stock, id],
     (error, result) => {
       if (error) {
         console.log(error);

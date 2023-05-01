@@ -2,22 +2,16 @@ import React, { useState } from "react";
 import "./CarModal.css";
 
 const CarModal = ({ setOpenModal, setOpenBuyModal, car, isSeller }) => {
-  const [price, setPrice] = useState(car.precio);
-
-  const handlePriceChange = (event) => {
-    setPrice(event.target.value);
-  };
-
   const handlePriceSubmit = (event) => {
     event.preventDefault();
     const newPrice = window.prompt("Ingrese el nuevo precio:");
 
-    fetch(`http://localhost:3001/cars/${car.id}`, {
+    fetch("https://car-selling-website.onrender.com/update/" + car.id_carro, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ precio: price }),
+      body: JSON.stringify({ precio: newPrice }),
     })
       .then((response) => {
         if (!response.ok) {
@@ -26,7 +20,8 @@ const CarModal = ({ setOpenModal, setOpenBuyModal, car, isSeller }) => {
         return response.json();
       })
       .then((data) => {
-        console.log("Precio actualizado:", data);
+        alert("Precio actualizado", data);
+        car.precio = newPrice;
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -98,13 +93,22 @@ const CarModal = ({ setOpenModal, setOpenBuyModal, car, isSeller }) => {
             Cancelar
           </button>
           {isSeller && (
-            <button
-              type="button"
-              className="car-button"
-              onClick={handlePriceSubmit}
-            >
-              Cambiar Precio
-            </button>
+            <>
+              <button
+                type="button"
+                className="car-button"
+                onClick={handlePriceSubmit}
+              >
+                Cambiar Precio
+              </button>
+              <button
+                type="button"
+                className="car-button"
+                onClick={handlePriceSubmit}
+              >
+                Cambiar Precio
+              </button>
+            </>
           )}
         </div>
       </div>
