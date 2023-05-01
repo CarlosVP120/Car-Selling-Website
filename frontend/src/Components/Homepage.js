@@ -13,9 +13,8 @@ function Homepage({ setOpenModal, setCurrentCar, isSeller }) {
     precio: "",
     estado: "",
     color: "",
-    imagen: "",
-    stock: "",
     url_imagen: "",
+    stock: "",
   });
 
   const handleInputChange = (event) => {
@@ -26,27 +25,27 @@ function Homepage({ setOpenModal, setCurrentCar, isSeller }) {
     }));
   };
 
+  if (openModalForm) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "unset";
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch("http://localhost:9000/create")
+    fetch("https://car-selling-website.onrender.com/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
       .then((response) => response.json())
       .then((data) => {
-        setCurrentCar(data.result[0]);
-        setFormData({
-          id_vendedor: data.result[0].id_vendedor,
-          marca: data.result[0].marca,
-          modelo: data.result[0].modelo,
-          año: data.result[0].año,
-          precio: data.result[0].precio,
-          estado: data.result[0].estado,
-          color: data.result[0].color,
-          imagen: data.result[0].imagen,
-          stock: data.result[0].stock,
-          url_imagen: data.result[0].url_imagen,
-        });
-        setOpenModalForm(true);
+        alert("Carro agregado al inventario");
+        window.location.reload();
       })
-      .catch((error) => alert(error));
+      .catch((error) => console.log(error));
   };
 
   const loadM4 = () => {
@@ -110,92 +109,100 @@ function Homepage({ setOpenModal, setCurrentCar, isSeller }) {
           <div className="modal-content">
             <h2>Formulario de llenado de carro</h2>
             <form onSubmit={handleSubmit}>
-              <label htmlFor="id">ID Vendedor:</label>
-              <input
-                type="text"
-                id="id_vendedor"
-                name="id_vendedor"
-                value={formData.id_vendedor}
-                onChange={handleInputChange}
-              />
-              <label htmlFor="marca">Marca:</label>
-              <input
-                type="text"
-                id="marca"
-                name="marca"
-                value={formData.marca}
-                onChange={handleInputChange}
-              />
-              <label htmlFor="modelo">Modelo:</label>
-              <input
-                type="text"
-                id="modelo"
-                name="modelo"
-                value={formData.modelo}
-                onChange={handleInputChange}
-              />
-              <label htmlFor="año">Año:</label>
-              <input
-                type="number"
-                id="año"
-                name="año"
-                value={formData.año}
-                onChange={handleInputChange}
-              />
-              <label htmlFor="precio">Precio:</label>
-              <input
-                type="number"
-                id="precio"
-                name="precio"
-                value={formData.precio}
-                onChange={handleInputChange}
-              />
-              <label htmlFor="estado">Estado:</label>
-              <input
-                type="text"
-                id="estado"
-                name="estado"
-                value={formData.estado}
-                onChange={handleInputChange}
-              />
-              <label htmlFor="color">Color:</label>
-              <input
-                type="text"
-                id="color"
-                name="color"
-                value={formData.color}
-                onChange={handleInputChange}
-              />
-              <label htmlFor="imagen">Imagen:</label>
-              <input
-                type="text"
-                id="imagen"
-                name="imagen"
-                value={formData.imagen}
-                onChange={handleInputChange}
-              />
-              <label htmlFor="stock">Stock:</label>
-              <input
-                type="number"
-                id="stock"
-                name="stock"
-                value={formData.stock}
-                onChange={handleInputChange}
-              />
-              <button
-                type="submit"
-                className="submit-button"
-                onClick={handleSubmit}
-              >
-                Enviar
-              </button>
-              <button
-                type="button"
-                className="close-button"
-                onClick={() => setOpenModalForm(false)}
-              >
-                Cerrar
-              </button>
+              <div className="row">
+                <label htmlFor="id">ID Vendedor:</label>
+                <input
+                  type="text"
+                  id="id_vendedor"
+                  name="id_vendedor"
+                  value={formData.id_vendedor}
+                  onChange={handleInputChange}
+                />
+                <label htmlFor="marca">Marca:</label>
+                <input
+                  type="text"
+                  id="marca"
+                  name="marca"
+                  value={formData.marca}
+                  onChange={handleInputChange}
+                />
+                <label htmlFor="modelo">Modelo:</label>
+                <input
+                  type="text"
+                  id="modelo"
+                  name="modelo"
+                  value={formData.modelo}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="row">
+                <label htmlFor="año">Año:</label>
+                <input
+                  type="number"
+                  id="año"
+                  name="año"
+                  value={formData.año}
+                  onChange={handleInputChange}
+                />
+                <label htmlFor="precio">Precio:</label>
+                <input
+                  type="number"
+                  id="precio"
+                  name="precio"
+                  value={formData.precio}
+                  onChange={handleInputChange}
+                />
+                <label htmlFor="estado">Estado:</label>
+                <input
+                  type="text"
+                  id="estado"
+                  name="estado"
+                  value={formData.estado}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="row">
+                <label htmlFor="color">Color:</label>
+                <input
+                  type="text"
+                  id="color"
+                  name="color"
+                  value={formData.color}
+                  onChange={handleInputChange}
+                />
+                <label htmlFor="url_imagen">Imagen:</label>
+                <input
+                  type="text"
+                  id="url_imagen"
+                  name="url_imagen"
+                  value={formData.url_imagen}
+                  onChange={handleInputChange}
+                />
+                <label htmlFor="stock">Stock:</label>
+                <input
+                  type="number"
+                  id="stock"
+                  name="stock"
+                  value={formData.stock}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="buttons">
+                <button
+                  type="submit"
+                  className="submit-button"
+                  onClick={handleSubmit}
+                >
+                  Enviar
+                </button>
+                <button
+                  type="button"
+                  className="close-button"
+                  onClick={() => setOpenModalForm(false)}
+                >
+                  Cerrar
+                </button>
+              </div>
             </form>
           </div>
         </div>

@@ -32,29 +32,17 @@ app.post("/create", (req, res) => {
   const precio = req.body.precio;
   const estado = req.body.estado;
   const color = req.body.color;
-  const imagen = req.body.imagen;
   const stock = req.body.stock;
   const url_imagen = req.body.url_imagen;
 
   db.query(
-    "INSERT INTO carros (id_vendedor, marca, modelo, año, precio, estado, color, imagen, stock, url_imagen) VALUES (?,?,?,?,?,?,?,?,?,?)",
-    [
-      id_vendedor,
-      marca,
-      modelo,
-      año,
-      precio,
-      estado,
-      color,
-      imagen,
-      stock,
-      url_imagen,
-    ],
+    "INSERT INTO inventario (id_vendedor, marca, modelo, año, precio, estado, color, stock, url_imagen) VALUES (?,?,?,?,?,?,?,?,?)",
+    [id_vendedor, marca, modelo, año, precio, estado, color, stock, url_imagen],
     (error, result) => {
       if (error) {
         console.log(error);
       } else {
-        res.send("Values Inserted");
+        res.send({ result });
       }
     }
   );
