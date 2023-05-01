@@ -14,7 +14,7 @@ Este es un proyecto de una aplicación de venta de carros en React, donde los us
 1. Clone este repositorio a su computadora:
 
 ```bash
-git clone https://github.com/tu-usuario/venta-de-carros-react.git
+git clone https://github.com/CarlosVP120/Car-Selling-Website.git venta-de-carros-react
 ```
 
 2. Acceda a la carpeta del proyecto:
