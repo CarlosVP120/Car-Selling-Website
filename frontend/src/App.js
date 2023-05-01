@@ -17,6 +17,7 @@ function App() {
         setOpenModal={setOpenModal}
         setCurrentCar={setCurrentCar}
         currentCar={currentCar}
+        isSeller={isSeller}
       />
       <Cards
         openModal={openModal}
