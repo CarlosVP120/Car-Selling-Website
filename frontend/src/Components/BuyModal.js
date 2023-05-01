@@ -4,7 +4,7 @@ import "./BuyModal.css";
 const BuyModal = ({ setOpenBuyModal, car, setData }) => {
   const confirmBuy = () => {
     fetch("https://car-selling-website.onrender.com/buy/" + car.id_carro, {
-      method: "PUT",
+      method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
