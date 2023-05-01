@@ -9,9 +9,9 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = mysql.createConnection({
-  user: "root",
-  host: "localhost",
-  password: "",
+  user: "admin",
+  host: "car-website.c2k4scjnbyqp.us-east-2.rds.amazonaws.com",
+  password: "carros123",
   database: "carros",
 });
 
@@ -90,7 +90,7 @@ app.get("/inventario/:id", (req, res) => {
 });
 
 // When a car is bought (stock - 1)
-app.put("/buy/:id", (req, res) => {
+app.delete("/buy/:id", (req, res) => {
   const id = req.params.id;
   db.query(
     "UPDATE carros.inventario SET stock = stock - 1 WHERE id_carro = ?;",

@@ -4,7 +4,7 @@ import Model from "./Model";
 
 function Homepage({ setOpenModal, setCurrentCar }) {
   const loadM4 = () => {
-    fetch("http://localhost:9000/inventario/6")
+    fetch("https://car-selling-website.onrender.com/inventario/6")
       .then((res) => res.json())
       .then((data) => setCurrentCar(data.result[0]))
       .catch((error) => alert(error));
