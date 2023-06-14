@@ -1,0 +1,112 @@
+{
+  "cars": [
+    {
+      "id_carro": "1",
+      "id_vendedor": "12345",
+      "marca": "Toyota",
+      "modelo": "Corolla",
+      "año": "2022",
+      "precio": 25000,
+      "estado": "Nuevo",
+      "color": "Rojo",
+      "stock": 5,
+      "url_imagen": "https://acroadtrip.blob.core.windows.net/catalogo-imagenes/s/RT_V_11eeb38a402d4d6089f28babd7d942cf.jpg"
+    },
+    {
+      "id_carro": "2",
+      "id_vendedor": "67890",
+      "marca": "Honda",
+      "modelo": "Civic",
+      "año": "2021",
+      "precio": 22000,
+      "estado": "Usado",
+      "color": "Azul",
+      "stock": 3,
+      "url_imagen": "https://hips.hearstapps.com/hmg-prod/images/197748-honda-reveals-fresh-styling-and-enhanced-interior-for-civic-1573992366.jpg"
+    },
+    {
+      "id_carro": "3",
+      "id_vendedor": "54321",
+      "marca": "Ford",
+      "modelo": "Mustang",
+      "año": "2023",
+      "precio": 40000,
+      "estado": "Nuevo",
+      "color": "Negro",
+      "stock": 2,
+      "url_imagen": "https://www.ford.com/is/image/content/dam/vdm_ford/live/en_us/ford/nameplate/mustang/2023/collections/dm/22_FRD_MST_55079_C7447317_MUST_GT_Prem_34FrntPassMotnRain_mj.tif?croppathe=1_16x9&wid=900"
+    },
+    {
+      "id_carro": "4",
+      "id_vendedor": "13579",
+      "marca": "Chevrolet",
+      "modelo": "Cruze",
+      "año": "2021",
+      "precio": 18000,
+      "estado": "Usado",
+      "color": "Plata",
+      "stock": 1,
+      "url_imagen": "https://www.chevrolet.com.ar/content/dam/chevrolet/mercosur/argentina/espanol/index/cars/2019-cruze-premier/colorizer/enero-21/colorizer-azul-eclipse.jpg?imwidth=960"
+    },
+    {
+      "id_carro": "5",
+      "id_vendedor": "24680",
+      "marca": "BMW",
+      "modelo": "X5",
+      "año": "2022",
+      "precio": 55000,
+      "estado": "Nuevo",
+      "color": "Blanco",
+      "stock": 4,
+      "url_imagen": "https://www.bmw.com.mx/content/dam/bmw/common/all-models/m-series/x5m/2021/onepager/bmw-x5-m-automobiles-onepager-gallery-x5-m-competition-impression-wallpaper-02.jpg.asset.1631784027640.jpg"
+    },
+    {
+      "id_carro": "6",
+      "id_vendedor": "97531",
+      "marca": "Mercedes-Benz",
+      "modelo": "C-Class",
+      "año": "2023",
+      "precio": 48000,
+      "estado": "Nuevo",
+      "color": "Gris",
+      "stock": 2,
+      "url_imagen": "https://hips.hearstapps.com/hmg-prod/images/2024-mercedes-amg-c63-s-e-performance-front-motion5-1663695513.jpg"
+    },
+    {
+      "id_carro": "7",
+      "id_vendedor": "86420",
+      "marca": "Audi",
+      "modelo": "A4",
+      "año": "2022",
+      "precio": 32000,
+      "estado": "Usado",
+      "color": "Negro",
+      "stock": 3,
+      "url_imagen": "https://img.remediosdigitales.com/9d3531/audi-s4-2021-precio-mexico_/1366_2000.jpg"
+    },
+    {
+      "id_carro": "8",
+      "id_vendedor": "76923",
+      "marca": "Volkswagen",
+      "modelo": "Golf",
+      "año": "2021",
+      "precio": 20000,
+      "estado": "Usado",
+      "color": "Gris",
+      "stock": 2,
+      "url_imagen": "https://www.eluniversal.com.mx/resizer/9ub1ThxhdAnuQEhT19R3hsSX9Ag=/1100x666/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/R7RBTDCNXVHI5GMOM5SJEV27RE.jpg"
+    },
+    {
+      "id_carro": "9",
+      "id_vendedor": "23456",
+      "marca": "BMW",
+      "modelo": "M4",
+      "año": "2023",
+      "precio": 60000,
+      "estado": "Nuevo",
+      "color": "Azul",
+      "stock": 1,
+      "url_imagen": "https://acnews.blob.core.windows.net/imgnews/large/NAZ_f51f23cee1a844e7aae34f780598a690.jpg"
+    }
+  ]
+}

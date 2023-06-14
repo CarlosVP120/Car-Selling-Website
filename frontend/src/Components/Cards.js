@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./Cards.css";
 import CarModal from "./CarModal";
 import BuyModal from "./BuyModal";
+import dataJSON from "./Cars.json";
 
 function Cards({
   openModal,
@@ -11,16 +12,16 @@ function Cards({
   setIsSeller,
   isSeller,
 }) {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(dataJSON);
   const [error, setError] = useState(null);
   const [openBuyModal, setOpenBuyModal] = useState(false);
 
-  useEffect(() => {
-    fetch("https://car-selling-website.onrender.com/inventario")
-      .then((res) => res.json())
-      .then((data) => setData(data))
-      .catch((error) => setError(error));
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://car-selling-website.onrender.com/inventario")
+  //     .then((res) => res.json())
+  //     .then((data) => setData(data))
+  //     .catch((error) => setError(error));
+  // }, []);
 
   if (error) {
     return <div>Error al obtener los datos: {error.message}</div>;
@@ -39,8 +40,8 @@ function Cards({
       <div className={`card-section`}>
         <h1 className="card-title">Nuestros Autos</h1>
         <div className="card-container">
-          {data.result &&
-            data.result.map((item) => (
+          {data.cars &&
+            data.cars.map((item) => (
               <div key={item.id} className="card">
                 <img src={item.url_imagen} alt={item.modelo} />
                 <div className="card-body">

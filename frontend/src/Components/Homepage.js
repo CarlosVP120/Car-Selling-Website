@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import "./Homepage.css";
 import Model from "./Model";
+import data from "./Cars.json";
 
 function Homepage({ setOpenModal, setCurrentCar, isSeller }) {
   const [openModalForm, setOpenModalForm] = useState(false);
@@ -49,10 +50,12 @@ function Homepage({ setOpenModal, setCurrentCar, isSeller }) {
   };
 
   const loadM4 = () => {
-    fetch("https://car-selling-website.onrender.com/inventario/6")
-      .then((res) => res.json())
-      .then((data) => setCurrentCar(data.result[0]))
-      .catch((error) => alert(error));
+    setCurrentCar(data.cars[8]);
+
+    // fetch("https://car-selling-website.onrender.com/inventario/6")
+    //   .then((res) => res.json())
+    //   .then((data) => setCurrentCar(data.result[0]))
+    //   .catch((error) => alert(error));
   };
 
   return (
